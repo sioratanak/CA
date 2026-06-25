@@ -1,66 +1,149 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+
+const features = [
+  {
+    title: "Culture",
+    text: "We preserve and share Khmer traditions through dance, festivals, workshops, and community storytelling.",
+  },
+  {
+    title: "Food",
+    text: "Cooking classes and food gatherings bring people together around Cambodian flavors, hospitality, and family recipes.",
+  },
+  {
+    title: "Tourism",
+    text: "We introduce Cambodia as a destination of history, nature, temples, and warm connections between people.",
+  },
+];
+
+const programs = [
+  "Khmer traditional dance training and performances",
+  "Cambodian cooking classes for families, friends, and partners",
+  "Czech language support for integration and everyday life",
+];
+
+const actions = ["Volunteer", "Partner", "Donate"];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <nav className={styles.nav} aria-label="Main navigation">
+          <a className={styles.logo} href="#top" aria-label="Cambodian Association home">
+            CA
+          </a>
+          <div className={styles.navLinks}>
+            <a href="#programs">Programs</a>
+            <a href="#events">Events</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+
+        <div className={styles.heroGrid} id="top">
+          <div className={styles.heroContent}>
+            <p className={styles.eyebrow}>Nonprofit community in Prague</p>
+            <h1>Cambodian Association in the Czech Republic</h1>
+            <p className={styles.heroText}>
+              We connect Cambodian and Czech communities through culture, food,
+              tourism, education, and practical support for people building a
+              life in Prague and beyond.
+            </p>
+            <div className={styles.heroActions}>
+              <a className={styles.primaryButton} href="#cta">
+                Get involved
+              </a>
+              <a className={styles.secondaryButton} href="#programs">
+                Explore programs
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.heroCard} aria-label="Association highlights">
+            <span>Culture</span>
+            <strong>Community, heritage, and friendship</strong>
+            <p>
+              A welcoming space for Cambodians in Czechia and everyone curious
+              about Cambodia.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.mission} aria-labelledby="mission-title">
+        <p className={styles.sectionKicker}>Our mission</p>
+        <h2 id="mission-title">
+          Building bridges through Cambodian culture, food, tourism, and
+          community connection.
+        </h2>
+        <p>
+          The Cambodian Association, z. s. supports community life in Prague,
+          celebrates Khmer heritage, and creates opportunities for Czech and
+          Cambodian people to meet, learn, and work together.
+        </p>
+      </section>
+
+      <section className={styles.features} aria-label="Association focus areas">
+        {features.map((feature, index) => (
+          <article className={styles.featureCard} key={feature.title}>
+            <span className={styles.cardNumber}>0{index + 1}</span>
+            <h3>{feature.title}</h3>
+            <p>{feature.text}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className={styles.programs} id="programs">
+        <div>
+          <p className={styles.sectionKicker}>Current programs</p>
+          <h2>Practical support and living traditions</h2>
+        </div>
+        <div className={styles.programList}>
+          {programs.map((program) => (
+            <article className={styles.programItem} key={program}>
+              <span aria-hidden="true" />
+              <p>{program}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.events} id="events">
+        <div className={styles.eventsText}>
+          <p className={styles.sectionKicker}>Events highlight</p>
+          <h2>Embassy Festival and cultural gatherings</h2>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            We represent Cambodian culture at public events, embassy and city
+            gatherings, community celebrations, dance performances, cooking
+            workshops, and informal meetups across Prague.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className={styles.eventBadge}>
+          <span>Next focus</span>
+          <strong>Share Cambodia with Czechia</strong>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className={styles.cta} id="cta">
+        <p className={styles.sectionKicker}>How you can help</p>
+        <h2>Join us in building bridges between Cambodian and Czech communities.</h2>
+        <div className={styles.actionGrid}>
+          {actions.map((action) => (
+            <a href="#contact" key={action}>
+              {action}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <footer className={styles.footer} id="contact">
+        <div>
+          <p className={styles.footerBrand}>Cambodian Association, z. s.</p>
+          <p>Pod strani 2161/21, Strasnice, Praha 10, 100 00, Czech Republic</p>
+        </div>
+        <address>
+          <a href="tel:+420730176456">+420 730 176 456</a>
+          <a href="mailto:cambodianspolek@gmail.com">cambodianspolek@gmail.com</a>
+        </address>
+      </footer>
+    </main>
   );
 }
