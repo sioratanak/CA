@@ -1,3 +1,4 @@
+import Header from "./Header";
 import styles from "./page.module.css";
 
 const features = [
@@ -26,18 +27,9 @@ const actions = ["Volunteer", "Partner", "Donate"];
 export default function Home() {
   return (
     <main className={styles.page}>
-      <section className={styles.hero}>
-        <nav className={styles.nav} aria-label="Main navigation">
-          <a className={styles.logo} href="#top" aria-label="Cambodian Association home">
-            CA
-          </a>
-          <div className={styles.navLinks}>
-            <a href="#programs">Programs</a>
-            <a href="#events">Events</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
+      <Header />
 
+      <section className={styles.hero}>
         <div className={styles.heroGrid} id="top">
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Nonprofit community in Prague</p>
@@ -58,6 +50,7 @@ export default function Home() {
           </div>
 
           <div className={styles.heroCard} aria-label="Association highlights">
+            <div className={styles.heroVisual} aria-hidden="true" />
             <span>Culture</span>
             <strong>Community, heritage, and friendship</strong>
             <p>
@@ -84,6 +77,7 @@ export default function Home() {
       <section className={styles.features} aria-label="Association focus areas">
         {features.map((feature, index) => (
           <article className={styles.featureCard} key={feature.title}>
+            <div className={styles.featureVisual} aria-hidden="true" />
             <span className={styles.cardNumber}>0{index + 1}</span>
             <h3>{feature.title}</h3>
             <p>{feature.text}</p>
