@@ -9,7 +9,7 @@
   --muted: #61757c;
 
   min-height: 100vh;
-  padding-top: 169px;
+  padding-top: 139px;
   color: var(--ink);
   background: #ffffff;
 }
@@ -20,10 +20,10 @@
   right: 0;
   left: 0;
   z-index: 20;
-  background: url("/ca-header-background.png");
+  background-image: url("/ca-header-background.png");
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-repeat: repeat-x;
+  background-size: auto 139px;
   background-color: #ffffff;
   box-shadow: 0 1px 0 rgba(0, 167, 181, 0.12);
 }
@@ -39,18 +39,10 @@
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
-  transition: max-height 220ms ease, padding 220ms ease, opacity 180ms ease;
-}
-
-.topBarHidden {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  opacity: 0;
 }
 
 .hero {
-  min-height: calc(100vh - 169px);
+  min-height: calc(100vh - 139px);
   padding: 0 clamp(20px, 4vw, 72px) 72px;
   color: #ffffff;
   background:
@@ -65,36 +57,24 @@
   gap: 24px;
   max-width: 1680px;
   margin: 0 auto;
-  padding-top: 28px;
+  padding-top: 18px;
   padding-right: clamp(20px, 4vw, 72px);
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   padding-left: clamp(20px, 4vw, 72px);
   border-bottom: 1px solid rgba(0, 167, 181, 0.16);
   background: transparent;
-  transition: padding 220ms ease, box-shadow 220ms ease;
-}
-
-.navCompact {
-  box-shadow: 0 12px 40px rgba(18, 49, 58, 0.08);
 }
 
 .logo {
   display: grid;
-  width: 90px;
-  height: 90px;
+  width: 74px;
+  height: 74px;
   place-items: center;
   overflow: hidden;
   border: 2px solid rgba(0, 167, 181, 0.24);
   border-radius: 50%;
   background: #ffffff;
   box-shadow: 0 14px 34px rgba(7, 34, 40, 0.1);
-  transition: width 220ms ease, height 220ms ease, box-shadow 220ms ease;
-}
-
-.navCompact .logo {
-  width: 58px;
-  height: 58px;
-  box-shadow: 0 8px 20px rgba(7, 34, 40, 0.08);
 }
 
 .logoImage {
@@ -107,14 +87,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 8px 22px;
-  color: var(--gold);
-  font-size: 0.95rem;
+  gap: 10px 14px;
+  font-size: 1.05rem;
   font-weight: 800;
 }
 
+.navLinks a {
+  min-height: 46px;
+  border: 1px solid rgba(255, 214, 102, 0.9);
+  border-radius: 999px;
+  padding: 12px 22px;
+  color: var(--red-dark);
+  background: rgba(255, 244, 204, 0.9);
+  box-shadow: 0 10px 24px rgba(7, 34, 40, 0.16);
+  backdrop-filter: blur(8px);
+}
+
 .navLinks a:hover {
-  color: var(--red);
+  color: var(--red-dark);
+  background: #f4b400;
 }
 
 .footer a:hover {
@@ -127,9 +118,9 @@
   align-items: end;
   gap: clamp(48px, 5vw, 96px);
   max-width: 1680px;
-  min-height: calc(100vh - 178px);
+  min-height: calc(100vh - 148px);
   margin: 0 auto;
-  padding-top: clamp(52px, 6vh, 92px);
+  padding-top: clamp(36px, 4vh, 64px);
 }
 
 .heroContent {
@@ -139,7 +130,7 @@
 .eyebrow,
 .sectionKicker {
   color: var(--gold);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -148,14 +139,14 @@
 .hero h1 {
   max-width: 760px;
   margin-top: 18px;
-  font-size: clamp(4rem, 7vw, 8.4rem);
-  line-height: 0.86;
+  font-size: clamp(3.2rem, 5.4vw, 6.2rem);
+  line-height: 0.9;
   letter-spacing: -0.08em;
 }
 
 .heroText {
   max-width: 620px;
-  margin-top: 28px;
+  margin-top: 22px;
   color: rgba(255, 255, 255, 0.84);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   line-height: 1.7;
@@ -165,7 +156,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 36px;
+  margin-top: 26px;
 }
 
 .primaryButton,
@@ -204,40 +195,44 @@
 .heroCard {
   position: relative;
   overflow: hidden;
-  min-height: 560px;
+  min-height: auto;
   border: 1px solid rgba(0, 167, 181, 0.16);
   border-radius: 18px;
-  padding: clamp(20px, 2.5vw, 38px);
+  padding: 14px;
   background: #ffffff;
   box-shadow: 0 34px 100px rgba(7, 34, 40, 0.28);
 }
 
-.heroVisual,
-.featureVisual,
-.heroCard::after {
+.featureVisual {
   background:
     radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.72), transparent 5rem),
     linear-gradient(135deg, #00a7b5, #72d7df 48%, #dff7fa);
 }
 
-.heroVisual {
-  height: clamp(300px, 43vh, 460px);
-  margin-bottom: 28px;
+.heroSlider {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.heroSlideImageWrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
+  background: #dff7fa;
 }
 
-.heroCard::after {
-  position: absolute;
-  right: 28px;
-  top: 48px;
-  width: 104px;
-  height: 104px;
-  border: 16px solid rgba(255, 255, 255, 0.72);
-  border-radius: 50%;
-  content: "";
+.heroSlideImage {
+  object-fit: cover;
 }
 
-.heroCard span,
+.heroSlideFooter {
+  padding: 22px 10px 8px;
+  text-align: center;
+}
+
+.heroSlideFooter span,
 .eventBadge span {
   color: var(--gold);
   font-size: 0.82rem;
@@ -246,20 +241,33 @@
   text-transform: uppercase;
 }
 
-.heroCard strong {
-  display: block;
-  max-width: 280px;
-  margin-top: 16px;
-  font-size: 2.1rem;
-  line-height: 1;
-  letter-spacing: -0.05em;
+.heroSlideFooter p {
+  max-width: 560px;
+  margin-top: 6px;
+  margin-right: auto;
+  margin-left: auto;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
-.heroCard p {
-  max-width: 280px;
-  margin-top: 18px;
-  color: var(--muted);
-  line-height: 1.7;
+.heroSlideDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.heroSlideDots button {
+  width: 34px;
+  height: 8px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 167, 181, 0.22);
+  cursor: pointer;
+}
+
+.heroSlideDots .heroSlideDotActive {
+  background: var(--gold);
 }
 
 .mission,
@@ -496,18 +504,6 @@
     font-size: clamp(3.4rem, 11vw, 6.4rem);
   }
 
-  .heroCard {
-    min-height: auto;
-  }
-
-  .heroCard strong {
-    margin-top: 16px;
-  }
-
-  .heroVisual {
-    height: clamp(260px, 44vw, 420px);
-  }
-
   .features,
   .actionGrid {
     grid-template-columns: 1fr;
@@ -550,10 +546,6 @@
 
   .hero h1 {
     font-size: clamp(3rem, 17vw, 4.6rem);
-  }
-
-  .heroVisual {
-    height: 240px;
   }
 
   .heroActions a,

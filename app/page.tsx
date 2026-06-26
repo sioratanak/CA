@@ -1,4 +1,5 @@
 import Header from "./Header";
+import HeroSlider from "./HeroSlider";
 import styles from "./page.module.css";
 
 const features = [
@@ -32,7 +33,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroGrid} id="top">
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Nonprofit community in Prague</p>
+            <p className={styles.eyebrow}>CAMBODIAN ASSOCIATION, Z.S.</p>
             <h1>Cambodian Association in the Czech Republic</h1>
             <p className={styles.heroText}>
               We connect Cambodian and Czech communities through culture, food,
@@ -49,14 +50,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.heroCard} aria-label="Association highlights">
-            <div className={styles.heroVisual} aria-hidden="true" />
-            <span>Culture</span>
-            <strong>Community, heritage, and friendship</strong>
-            <p>
-              A welcoming space for Cambodians in Czechia and everyone curious
-              about Cambodia.
-            </p>
+          <div className={styles.heroCard} aria-label="Association photo highlights">
+            <HeroSlider />
           </div>
         </div>
       </section>

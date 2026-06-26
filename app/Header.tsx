@@ -1,34 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 import styles from "./page.module.css";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const updateHeader = () => {
-      setIsScrolled(window.scrollY > 72);
-    };
-
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
-
-    return () => window.removeEventListener("scroll", updateHeader);
-  }, []);
-
   return (
     <header className={styles.siteHeader}>
-      <div className={`${styles.topBar} ${isScrolled ? styles.topBarHidden : ""}`}>
+      <div className={styles.topBar}>
         Cambodian culture, food, tourism, and community in Czechia
       </div>
 
-      <nav
-        className={`${styles.nav} ${isScrolled ? styles.navCompact : ""}`}
-        aria-label="Main navigation"
-      >
+      <nav className={styles.nav} aria-label="Main navigation">
         <a className={styles.logo} href="#top" aria-label="Cambodian Association home">
           <Image
             className={styles.logoImage}
